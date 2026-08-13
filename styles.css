@@ -183,6 +183,37 @@ footer span,
   padding: 7px 12px;
   text-decoration: none;
 }
+.umami-shared-pixel {
+  height: 1px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
+.dynamic-slot {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  width: 100%;
+}
+.dynamic-slot:empty {
+  display: none;
+}
+.dynamic-button {
+  animation: dynamicFadeIn 220ms ease-out both;
+}
+@keyframes dynamicFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .page-shell {
   display: grid;
   gap: var(--section-gap);
