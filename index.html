@@ -50,7 +50,6 @@
   </a>
   </section>
       <nav class="social-strip" aria-label="噗噗 social links">
-    <p class="social-click-hint" aria-live="polite">社交入口需要连续点击 3 次后打开</p>
     <a class="social-icon" data-social-confirm="3" data-social-label="X / Twitter" data-blm-link-id="link-site-pupuwaifu-com-2b976618-0899-8022-89aa-cf4b7f3e06e2-twitter" href="https://x.com/pupuwaifu" rel="noreferrer" target="_blank" aria-label="X / Twitter" data-umami-event="social:X / Twitter" data-umami-event-link-id="link-site-pupuwaifu-com-2b976618-0899-8022-89aa-cf4b7f3e06e2-twitter">
     <span aria-hidden="true"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"></path></svg></span>
   </a>
@@ -71,22 +70,28 @@
       </nav>
       <p class="footer-love">Creating for Love</p>
     </footer>
-    <img class="umami-shared-pixel" src="https://analytics.nu11.me/p/XPTPDhX9j" alt="" width="1" height="1" loading="eager" decoding="async" referrerpolicy="strict-origin-when-cross-origin" aria-hidden="true">
+    <script>
+(function () {
+  var pixelUrl = "https://analytics.nu11.me/p/XPTPDhX9j";
+  if (!pixelUrl) return;
+  var separator = pixelUrl.indexOf("?") === -1 ? "?" : "&";
+  var img = new Image(1, 1);
+  img.className = "umami-shared-pixel";
+  img.alt = "";
+  img.decoding = "async";
+  img.referrerPolicy = "strict-origin-when-cross-origin";
+  img.setAttribute("aria-hidden", "true");
+  img.src = pixelUrl + separator + "t=" + Date.now();
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.appendChild(img);
+  }, { once: true });
+})();
+</script>
     <script>
 (function () {
   var requiredClicks = 3;
   var resetMs = 1800;
   var state = new Map();
-
-  function updateHint(anchor, remaining) {
-    var strip = anchor.closest(".social-strip");
-    var hint = strip && strip.querySelector(".social-click-hint");
-    if (!hint) return;
-    var label = anchor.getAttribute("data-social-label") || anchor.getAttribute("aria-label") || "社交入口";
-    hint.textContent = remaining > 0
-      ? label + " 还需要点击 " + remaining + " 次"
-      : "正在打开 " + label;
-  }
 
   document.addEventListener("click", function (event) {
     var anchor = event.target && event.target.closest ? event.target.closest("a[data-social-confirm]") : null;
@@ -101,17 +106,15 @@
       event.preventDefault();
       current.timer = window.setTimeout(function () {
         state.delete(anchor);
-        updateHint(anchor, requiredClicks);
+        anchor.removeAttribute("data-social-click-count");
       }, resetMs);
       state.set(anchor, current);
       anchor.setAttribute("data-social-click-count", String(current.count));
-      updateHint(anchor, requiredClicks - current.count);
       return;
     }
 
     state.delete(anchor);
     anchor.removeAttribute("data-social-click-count");
-    updateHint(anchor, 0);
     event.preventDefault();
     window.open(href, anchor.target || "_blank", "noopener,noreferrer");
   }, true);
