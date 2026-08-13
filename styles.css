@@ -192,28 +192,6 @@ footer span,
   top: auto;
   width: 1px;
 }
-.dynamic-slot {
-  display: grid;
-  gap: 10px;
-  min-width: 0;
-  width: 100%;
-}
-.dynamic-slot:empty {
-  display: none;
-}
-.dynamic-button {
-  animation: dynamicFadeIn 220ms ease-out both;
-}
-@keyframes dynamicFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .page-shell {
   display: grid;
   gap: var(--section-gap);
@@ -357,11 +335,21 @@ h1 {
   overflow-wrap: anywhere;
 }
 .social-strip {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px 10px;
   justify-content: center;
   min-width: 0;
+}
+.social-click-hint {
+  color: var(--muted);
+  flex-basis: 100%;
+  font-size: 12px;
+  line-height: 1.35;
+  margin: 0;
+  min-height: 17px;
+  text-align: center;
 }
 .social-icon {
   align-items: center;
@@ -377,6 +365,10 @@ h1 {
   text-decoration: none;
   transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease, opacity 160ms ease, transform 160ms ease;
   width: 44px;
+}
+.social-icon[data-social-click-count] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent), transparent 78%);
 }
 .social-icon:hover {
   background: var(--social-hover-bg);
