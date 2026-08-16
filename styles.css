@@ -648,6 +648,33 @@ footer a {
 footer a:hover {
   color: var(--ink);
 }
+.cta-primary {
+  align-items: center;
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-border);
+  border-radius: var(--radius-action);
+  color: var(--cta-ink);
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 15px;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.cta-primary:hover,
+.cta-primary:focus-visible {
+  background: var(--cta-bg-hover);
+  border-color: var(--cta-border-hover);
+  box-shadow: var(--cta-shadow-hover);
+  color: var(--cta-ink-hover);
+  transform: translateY(-1px);
+}
+.cta-primary:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent), transparent 45%);
+  outline-offset: 2px;
+}
 .footer-links {
   align-items: center;
   display: flex;
