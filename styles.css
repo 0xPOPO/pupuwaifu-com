@@ -171,8 +171,25 @@ a { color: inherit; }
 }
 .campaign-banner span,
 footer span,
-.contact,
-.empty { color: var(--muted); }
+.contact { color: var(--muted); }
+.links-empty {
+  align-items: center;
+  background: color-mix(in srgb, var(--link-bg), transparent 34%);
+  border: 1px dashed color-mix(in srgb, var(--link-border), transparent 8%);
+  border-radius: var(--radius-action);
+  color: var(--link-meta);
+  display: flex;
+  font-size: 13px;
+  font-weight: 650;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1.45;
+  margin: 0;
+  min-height: 52px;
+  padding: 14px 16px;
+  text-align: center;
+  width: 100%;
+}
 .banner-button {
   background: var(--cta-bg);
   border: 1px solid var(--cta-border);
