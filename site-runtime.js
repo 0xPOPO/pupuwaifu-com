@@ -169,7 +169,7 @@
 
     if (count === 0) {
       var empty = document.createElement("p");
-      empty.className = "empty";
+      empty.className = "links-empty";
       empty.textContent = "Links coming soon.";
       target.appendChild(empty);
     }
