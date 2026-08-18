@@ -4,7 +4,7 @@
       "className": "link-button campaign-button bio-button",
       "dataset": {
         "blm-campaign-click": "creative-campaign-hi-vpn-bio-button",
-        "umami-event": "campaign:高速不卡顿机场推荐",
+        "umami-event": "campaign:博主自用：高速不卡顿加速器推荐",
         "umami-event-campaign-id": "creative-campaign-hi-vpn-bio-button"
       },
       "icon": {
@@ -13,13 +13,13 @@
       },
       "id": "creative-campaign-hi-vpn-bio-button",
       "kind": "campaign",
-      "label": "高速不卡顿机场推荐",
+      "label": "博主自用：高速不卡顿加速器推荐",
       "meta": "Campaign",
       "url": "https://getsapp.net/RAXcnP"
     }
   },
   "extraActions": [],
-  "generatedAt": "2026-08-17T08:05:03.871Z",
+  "generatedAt": "2026-08-18T03:36:20.800Z",
   "links": [
     {
       "className": "link-button link-kind-button",
